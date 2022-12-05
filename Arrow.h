@@ -9,7 +9,7 @@ public:
 	Arrow(Point a, Point b, std::string type, std::string name);
 
 	// Destructor
-	~Arrow();
+	virtual ~Arrow();
 
 	// Getters
 	Point getSource()const;

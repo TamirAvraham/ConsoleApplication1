@@ -4,7 +4,8 @@ Arrow::Arrow(Point a, Point b, std::string type, std::string name):Shape(name,ty
 {
 	if (a.getX()==b.getY()&&b.getY())
 	{
-
+		std::cerr << "ERROR. same point for arrow";
+		exit(1);
 	}
 }
 
@@ -28,7 +29,7 @@ void Arrow::printDetails() const
 	using std::string;
 	using std::cout;
 
-	cout << "name of arraow: " << getName() << " type of arrow is: " << getType() << " source of arrow: (" << _source.getX() << "," << _source.getY() << ") destination of arrow is: (" << _destination.getX() << "," << _destination.getY() << ") \n";
+	cout << "name of arraow: " << getName() << " type of arrow is: " << getType() << " source of arrow: " << _source.ToString()<<" destination of arrow is: "<<_destination.ToString()<<" \n";
 	
 }
 
