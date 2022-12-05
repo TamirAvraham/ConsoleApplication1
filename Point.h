@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string>
 class Point
 {
 public:
@@ -19,6 +19,7 @@ public:
 	double getX() const;
 	double getY() const;
 
+	std::string ToString() const;
 	// Methods
 	double distance(Point& other) const;
 private:

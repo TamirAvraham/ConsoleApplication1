@@ -1,5 +1,6 @@
 #include "Point.h"
 #include <iostream>
+#include <sstream>
 Point::Point():_x(0),_y(0)
 {
 }
@@ -35,6 +36,13 @@ double Point::getX() const
 double Point::getY() const
 {
     return _y;
+}
+
+std::string Point::ToString() const
+{
+    std::stringstream retAsStream;
+    retAsStream << "(" << _x << "," << _y << ")";
+    return retAsStream.str();
 }
 
 double Point::distance(Point& other) const
