@@ -21,7 +21,7 @@ public:
 
 	std::string ToString() const;
 	// Methods
-	double distance(Point& other) const;
+	double distance(const Point& other) const;
 private:
 	double _x;
 	double _y;

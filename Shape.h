@@ -21,8 +21,8 @@ public:
 	 
 	virtual void printDetails() const;
 
-	virtual double getArea() = 0;
-	virtual double getPerimeter() = 0;
+	virtual double getArea() const  = 0;
+	virtual double getPerimeter() const = 0 ;
 	virtual void move(Point other) = 0;
 	virtual void draw(const Canvas& canvas) = 0;
 	virtual void clearDraw(const Canvas& canvas) = 0;

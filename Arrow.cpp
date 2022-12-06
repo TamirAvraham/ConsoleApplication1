@@ -33,12 +33,12 @@ void Arrow::printDetails() const
 	
 }
 
-double Arrow::getArea()
+double Arrow::getArea() const
 {
 	return 0;
 }
 
-double Arrow::getPerimeter()
+double Arrow::getPerimeter() const
 {
 	return _source.distance(_destination);
 }

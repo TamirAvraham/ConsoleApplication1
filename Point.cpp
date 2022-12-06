@@ -45,7 +45,7 @@ std::string Point::ToString() const
     return retAsStream.str();
 }
 
-double Point::distance(Point& other) const
+double Point::distance(const Point& other) const
 {
     return std::sqrt(std::pow(_x - other._x,2)+std::pow((_y-other._y),2));
 }

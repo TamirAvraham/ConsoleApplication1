@@ -25,14 +25,19 @@ void Circle::printDetails() const
 	std::cout << "name of the circle: " << getName() << " type of circle: " << getType() << " center: " << _center.ToString() << " circle rad : " << _radius << " \n";
 }
 
-double Circle::getArea()
+double Circle::getArea() const
 {
 	return PI*std::pow(_radius,2);
 }
 
-double Circle::getPerimeter()
+double Circle::getPerimeter() const
 {
 	return 2*PI*_radius;
+}
+
+void Circle::move(Point other)
+{
+	_center += other;
 }
 
 void Circle::draw(const Canvas& canvas)
