@@ -11,9 +11,15 @@ public:
 	~Menu();
 
 	// more functions..
+	Point getPoint();
+	void GetShape(std::string& type, std::string& name);
+	void addShape();
+	void ShapePicker();
+	bool changeShape(Shape& shape);
+	void RunMenu();
 
 private: 
 	Canvas _canvas;
-	// define a vector that contains the shapes
+	std::vector<Shape> _shapes;
 };
 

@@ -5,13 +5,13 @@
 myShapes::Rectangle::Rectangle(Point a, double length, double width, std::string type, std::string name):Polygon(type,name)
 {
 	//putting points in vec
-	Point TopLeftCorner(a.getX() + length, a.getY()+width);
-	Point BottomLeftCorner(a.getX() + length, a.getY());
-	Point BottomRightCorner(a.getX(), a.getY()+width);
+	Point TopRightCorner(a.getX() + length, a.getY()+width);
+	Point BottomRightCorner(a.getX() + length, a.getY());
+	Point BottomLeftCorner(a.getX(), a.getY()+width);
 	_points.push_back(a);
-	_points.push_back(BottomLeftCorner);
-	_points.push_back(TopLeftCorner);
 	_points.push_back(BottomRightCorner);
+	_points.push_back(TopRightCorner);
+	_points.push_back(BottomLeftCorner);
 	
 }
 
