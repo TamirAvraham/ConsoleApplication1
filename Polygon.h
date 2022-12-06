@@ -11,12 +11,12 @@ public:
 	Polygon(std::string type, std::string name);
 
 	// Destructor
-	~Polygon();
+	virtual ~Polygon();
 
 	// Methods
 
 	// Getters
-	std::vector<Point> getPoints();
+	std::vector<Point> getPoints() const;
 
 	// override functions if need (virtual + pure virtual)
 
