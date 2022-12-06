@@ -12,6 +12,10 @@ public:
 	~Triangle();
 
 	// Methods
+	void printDetails() const override;
+	double getArea() const override;
+	double getPerimeter() const override;
+	void move(Point other)override;
 	void draw(const Canvas& canvas) override;
 	void clearDraw(const Canvas& canvas) override;
 
