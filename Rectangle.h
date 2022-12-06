@@ -14,14 +14,20 @@ namespace myShapes
 		Rectangle(Point a, double length, double width, std::string type, std::string name);
 
 		// Destructor
-		~Rectangle();
+		virtual ~Rectangle();
 
 		// Methods
+		void printDetails() const override;
+		double getArea() const override;
+		double getPerimeter() const override;
+		void move(Point other)override;
 		void draw(const Canvas& canvas) override;
 		void clearDraw(const Canvas& canvas) override;
 
 		// override functions if need (virtual + pure virtual)
 
 		// Add Fields if necessary
+	
 	};
+
 }
