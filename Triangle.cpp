@@ -14,11 +14,15 @@ Triangle::Triangle(Point a, Point b, Point c, std::string type, std::string name
 
 Triangle::~Triangle()
 {
+	// guess what no code
 }
 
 void Triangle::printDetails() const
 {
-
+	std::cout << "triangle name: " << getName() << " triangle type: " << getType();
+	std::cout << " triangle point 1: " << _points[0].ToString();
+	std::cout << " triangle point 2: " << _points[1].ToString();
+	std::cout << " trinagle point 3: " << _points[2].ToString() << '\n';
 }
 
 double Triangle::getArea() const
