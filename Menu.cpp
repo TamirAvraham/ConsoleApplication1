@@ -11,7 +11,7 @@ using std::cin;
 Menu::Menu() 
 {
 	_canvas = Canvas();
-	_shapes = std::vector<Shape>();
+	_shapes = std::vector<Shape*>();
 }
 
 Menu::~Menu()
@@ -47,6 +47,7 @@ void Menu::addShape()
 	Point a, b, c;
 	double d1 = 0.0, d2 = 0.0;
 	std::string name(""), type("");
+	
 	cout << "pick an option:\n" <<
 		"1.arrow\n"<<
 		"2.circle\n"<<
@@ -63,7 +64,7 @@ void Menu::addShape()
 		b = getPoint();
 		GetShape(name,type);
 		
-		_shapes.push_back(Arrow(a, b, type, name));
+		_shapes.push_back(new Arrow(a, b, type, name));
 		break;
 	case 2:
 		cout << "enter center of circle:\n";
@@ -72,7 +73,7 @@ void Menu::addShape()
 		cin >> d1;
 		getchar();
 		GetShape(name, type);
-		_shapes.push_back(Circle(a, d1, type, name));
+		_shapes.push_back(new Circle(a, d1, type, name));
 		break;
 	case 3:
 		cout << "enter top left point of rectangle: \n";
@@ -84,7 +85,7 @@ void Menu::addShape()
 		cin >> d2;
 		getchar();
 		GetShape(name, type);
-		_shapes.push_back(myShapes::Rectangle(a, d1, d2, type, name));
+		_shapes.push_back(new myShapes::Rectangle(a, d1, d2, type, name));
 		break;
 	case 4:
 		cout << "enter first point of rectangle: \n";
@@ -94,13 +95,13 @@ void Menu::addShape()
 		cout << "enter third point of rectangle: \n";
 		c = getPoint();
 		GetShape(name, type);
-		_shapes.push_back(Triangle(a,b,c,type,name));
+		_shapes.push_back(new Triangle(a,b,c,type,name));
 		break;
 	default:
 		throw("ERROR!!! option not found\n");
 		break;
 	}
-	_shapes[_shapes.size() - 1].draw(_canvas);//render new objects
+	_shapes[_shapes.size() - 1]->draw(_canvas);//render new objects
 }
 
 void Menu::ShapePicker()
@@ -109,7 +110,7 @@ void Menu::ShapePicker()
 	for (size_t i = 0; i < _shapes.size(); i++)
 	{
 		
-		cout << i + 1 << ". name: " << _shapes[i].getName() << " type: " << _shapes[i].getType()<<"\n";
+		cout << i + 1 << ". name: " << _shapes[i]->getName() << " type: " << _shapes[i]->getType()<<"\n";
 	}
 	cout << "enter shapes index: ";
 	cin >> input;
@@ -118,7 +119,7 @@ void Menu::ShapePicker()
 
 	if (input<_shapes.size()&&input>=0)
 	{
-		if (changeShape(_shapes[input]))
+		if (changeShape(*_shapes[input]))
 			_shapes.erase(_shapes.begin() + input);
 	}
 	else
@@ -183,9 +184,9 @@ void Menu::RunMenu()
 				ShapePicker();
 				break;
 			case 3:
-				for (Shape& shape : _shapes)
+				for (Shape* shape : _shapes)
 				{
-					shape.clearDraw(_canvas);
+					shape->clearDraw(_canvas);
 				}
 				_shapes.clear();
 				break;

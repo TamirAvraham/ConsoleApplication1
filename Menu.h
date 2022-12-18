@@ -20,6 +20,6 @@ public:
 
 private: 
 	Canvas _canvas;
-	std::vector<Shape> _shapes;
+	std::vector<Shape*> _shapes;
 };
 
